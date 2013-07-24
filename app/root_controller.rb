@@ -21,7 +21,6 @@ class RootController < UIViewController
     sheet.cancelButtonIndex = sheet.addButtonWithTitle('Cancel')
     sheet.showInView(view)
     @action_sheet = sheet # for testing puposes
-    $junk = sheet
 
     # # THIS IS HOW TO DO IT REAL QUICK WITH SUGARCUBE
     # # https://github.com/rubymotion/sugarcube
