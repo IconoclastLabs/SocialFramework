@@ -24,4 +24,12 @@ describe "RootController" do
   it "has Facebook if available" do
     @all_buttons.include?("Facebook").should.equal SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook)
   end
+
+  # THIS IS REALLY IMPORTANT - Testing multiple action sheets will fight for modal view!  
+  # As of this test, you have to close them manually so you can stop conflicts with other tests.
+  it "closes when cancel is pressed" do
+    cancel_button |= @sheet.cancelButtonIndex
+    @sheet.dismissWithClickedButtonIndex(cancel_button, animated: false)
+    @sheet.isVisible.should.equal false    
+  end
 end
